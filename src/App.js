@@ -1,10 +1,13 @@
 import React from 'react';
-import  Routes  from "./Routes";
+import  Rota  from "./Rota";
 
 
 function App() {
-  return (
-    <Routes />
+  return(
+  <>
+  <h1>Teste</h1>
+    <Rota />
+  </>
   );
 }
 
