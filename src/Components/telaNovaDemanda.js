@@ -6,6 +6,8 @@ import "./../style.css"
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 
+const campos = [{nome:"Título", tipo: "input", key:1}, {nome:"Problema atual", tipo:"textarea", key:2}, {nome:"Objetivo", tipo:"textarea", key:3}]
+
 const NewDemanda = () => {
   const [value, setValue] = useState(1)
   return (
@@ -15,7 +17,7 @@ const NewDemanda = () => {
         <Directory now={"Nova Demanda"} pass={"home/"}/>
         <div className="content">
           <ProgressBar now={value} />
-          <SignupForm value={value} nextPage={setValue}></SignupForm>
+          <SignupForm value={value} nextPage={setValue} inputs={campos}></SignupForm>
         </div>
       </div>
       <Link to="/">retornar a página inicial</Link>

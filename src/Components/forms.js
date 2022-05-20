@@ -2,52 +2,54 @@
 import { useFormik } from 'formik';
 import "./../style.css"
 
+const Inputs = (props) => {
+    let listaInputs = props.inputs.map((e) => {
+        return (
+            <div className='input' key={e.key}>
+                <label htmlFor={e.nome}>{e.nome}</label>
+                {e.tipo == "input" ?
+                    <input
+                        className='forms-input'
+                        id={e.key}
+                        name={e.nome}
+                        type={e.nome}
+                        onChange={props.change}
+                        value={props.value[e.key - 1]}
+                    />
+                    :
+                    <textarea
+                        className='forms-input'
+                        id={e.key}
+                        name={e.nome}
+                        type={e.nome}
+                        onChange={props.change}
+                        value={props.value[e.key - 1]}
+                    />
+                }
+            </div>
+        )
+    })
+
+    return listaInputs
+}
+
 const SignupForm = (props) => {
-    // Pass the useFormik() hook initial form values and a submit function that will
-    // be called when the form is submitted
+    let numeros = []
+    for(let i = 0; i < props.inputs.length; i++){
+        numeros[i] = props.inputs[i].nome
+    }
+
     const formik = useFormik({
         initialValues: {
-            titulo: '',
-            problemaAtual: '',
-            objetivo: ''
+            
         },
         onSubmit: values => {
-            props.nextPage(props.value + 1)
-            alert(JSON.stringify(values, null, 2));
+            console.log(values)
         },
     });
     return (
         <form className='formulario' onSubmit={formik.handleSubmit}>
-            <label htmlFor="titulo">Título</label>
-            <input
-                className='forms-input'
-                id="titulo"
-                name="titulo"
-                type="titulo"
-                onChange={formik.handleChange}
-                value={formik.values.titulo}
-            />
-
-            <label htmlFor="problemaAtual">Problema Atual</label>
-            <textarea
-                className='forms-input'
-                id="problemaAtual"
-                name="problemaAtual"
-                type="problemaAtual"
-                onChange={formik.handleChange}
-                value={formik.values.problemaAtual}
-            />
-
-            <label htmlFor="objetivo">Objetivo</label>
-            <textarea
-                className='forms-input'
-                id="objetivo"
-                name="objetivo"
-                type="objetivo"
-                onChange={formik.handleChange}
-                value={formik.values.objetivo}
-            />
-
+            <Inputs inputs={props.inputs} value={""} change={formik.handleChange}></Inputs>
             <button type="submit">Submit</button>
         </form>
     );
