@@ -5,13 +5,16 @@ function ProgressBar(props) {
     return (
         <div id="progressbar">
             <div className="pageCircle">
-                {props.now == 1 ? <h1>Início</h1> : <span> Início</span>}
+                {/* Informação inicial */}
+                {props.now == 1 ? <h1>1</h1> : <span> 1</span>}
             </div>
             <div className="pageCircle">
-                {props.now == 2 ? <h1>Início</h1> : <span> Início</span>}
+                {/*Benefícios  */}
+                {props.now == 2 ? <h1>2</h1> : <span>2 </span>}
             </div>
             <div className="pageCircle">
-                {props.now == 3 ? <h1>Início</h1> : <span> Início</span>}
+                {/* Arquivos */}
+                {props.now == 3 ? <h1>3</h1> : <span> 3</span>}
             </div>
         </div>
 

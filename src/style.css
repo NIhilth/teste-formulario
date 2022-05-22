@@ -65,7 +65,35 @@ label{
     margin-bottom: 10px;
 }
 
-
 .forms-input{
     margin-bottom: 10px;
+}
+
+#centros-de-custo{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.input-centros-de-custo{
+    width: 72%;
+}
+
+.beneficios{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.beneficios-titulo{
+    width: 100%;
+    height: 30px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+#a{
+    width: 100%;
 }
